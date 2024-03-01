@@ -2,10 +2,14 @@ import React from 'react'
 import {View,Text,Button} from 'react-native'
 
 
+
 function Home({navigation}) {
 
   const btnPress  = ()=>{
-    navigation.navigate('Signin');
+    navigation.navigate('Signin',{
+      user:"Jalal",
+      id:"1"
+    });
   }
   return (
   <View>

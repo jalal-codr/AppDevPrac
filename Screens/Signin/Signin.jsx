@@ -2,7 +2,8 @@ import React from 'react'
 import {View,Text,Button} from 'react-native'
 
 
-function Signin({navigation}) {
+function Signin({navigation,route}) {
+    const {user,id} =route.params;
     const goBack = ()=>{
         navigation.popToTop();
     }
