@@ -15,7 +15,10 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator  initialRouteName='Home'>
-        <Stack.Screen name='Home' component={Home}/>
+        <Stack.Screen name='Home' component={Home} initialParams={{
+      user:"Jalal",
+      id:"1"
+    }}/>
         <Stack.Screen name='Signin' component={Signin}/>
       </Stack.Navigator>
     </NavigationContainer>

@@ -8,10 +8,24 @@ function Signin({navigation,route}) {
         navigation.popToTop();
     }
     const btnClick = ()=>{
-        navigation.push('Signin')
+        navigation.push('Signin',{
+            user:"Jalal",
+            id:"1"
+          })
+    }
+    const render = ()=>{
+        if(user){
+            return(<View>
+        <Text>{user}</Text>
+        <Text>{id}</Text>
+            </View>)
+        }
     }
   return (
     <View>
+        {
+            render()
+        }
         <Text>SignIn Page</Text>
         <Button title='Signin' onPress={btnClick}/>
         <Button title='Back Home' onPress={goBack}/>
