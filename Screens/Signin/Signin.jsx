@@ -1,9 +1,14 @@
-import React from 'react'
-import {View,Text,Button} from 'react-native'
+import React, { useState } from 'react'
+import {View,Text,Button,TextInput, Alert} from 'react-native'
 
 
 function Signin({navigation,route}) {
+    const [text,setText] = useState('');
     const {user,id} =route.params;
+
+
+
+
     const goBack = ()=>{
         navigation.popToTop();
     }
@@ -13,19 +18,16 @@ function Signin({navigation,route}) {
             id:"1"
           })
     }
-    const render = ()=>{
-        if(user){
-            return(<View>
-        <Text>{user}</Text>
-        <Text>{id}</Text>
-            </View>)
-        }
+    const submit = ()=>{
+        Alert.alert(text)
     }
   return (
     <View>
-        {
-            render()
-        }
+        <TextInput
+        placeholder='Enter text'
+        onChangeText={newText=>{setText(newText)}}
+        />
+        <Button title='Submit text' onPress={submit}/>
         <Text>SignIn Page</Text>
         <Button title='Signin' onPress={btnClick}/>
         <Button title='Back Home' onPress={goBack}/>
