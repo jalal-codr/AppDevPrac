@@ -1,5 +1,5 @@
 import React from 'react'
-import {View,Text,Button,Image, ScrollView, FlatList} from 'react-native'
+import {View,Text,Button,Image, ScrollView, FlatList, SectionList} from 'react-native'
 
 
 function Home({navigation}) {
@@ -39,6 +39,25 @@ function Home({navigation}) {
         {key: 'Julie'},
       ]}
       renderItem={({item})=>(<Text>{item.key}</Text>)}
+      />
+    </View>
+    <View>
+      <SectionList
+      sections={[{title: 'D', data: ['Devin', 'Dan', 'Dominic']},{
+        title: 'J',
+        data: [
+          'Jackson',
+          'James',
+          'Jillian',
+          'Jimmy',
+          'Joel',
+          'John',
+          'Julie',
+        ],
+      }]}
+      renderItem={({item})=><Text>{item}</Text>}
+      renderSectionHeader={({section})=>(<Text>{section.title}</Text>)}
+      keyExtractor={item => `basicListEntry-${item}`}
       />
     </View>
   </View>
