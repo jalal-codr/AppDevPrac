@@ -1,5 +1,5 @@
 import React from 'react'
-import {View,Text,Button,Image} from 'react-native'
+import {View,Text,Button,Image, ScrollView} from 'react-native'
 
 
 function Home({navigation}) {
@@ -14,6 +14,16 @@ function Home({navigation}) {
   <View>
     <Text>Hello</Text>
     <Button title='SignIn' onPress={btnPress}/>
+    <ScrollView>
+    <Text>Hello</Text>
+    <Text>Hello</Text>
+    <Text>Hello</Text>
+    <Text>Hello</Text>
+    <Text>Hello</Text>
+    <Text>Hello</Text>
+    <Text>Hello</Text>
+    <Text>Hello</Text>
+    </ScrollView>
   </View>
   )
 }

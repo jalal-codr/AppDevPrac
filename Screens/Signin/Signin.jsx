@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {View,Text,Button,TextInput, Alert} from 'react-native'
+import {View,Text,Button,TextInput, Alert, ScrollView} from 'react-native'
 
 
 function Signin({navigation,route}) {
