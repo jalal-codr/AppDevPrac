@@ -57,7 +57,7 @@ function Home({navigation}) {
       }]}
       renderItem={({item})=><Text>{item}</Text>}
       renderSectionHeader={({section})=>(<Text>{section.title}</Text>)}
-      keyExtractor={item => `basicListEntry-${item}`}
+      
       />
     </View>
   </View>
