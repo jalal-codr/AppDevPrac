@@ -1,10 +1,13 @@
 import React from 'react';
-import {View,} from "react-native";
+import {View,Button, Alert} from "react-native";
 
 function SignIn() {
+  const  SignInWithGoogle=()=>{
+    Alert.alert("Hello")
+  }
   return (
     <View>
-
+      <Button title='SignInWithGoogle' onPress={SignInWithGoogle}/>
     </View>
   )
 }
