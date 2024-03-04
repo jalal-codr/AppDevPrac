@@ -11,7 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "plugins":[
+    "plugins": [
       "@react-native-google-signin/google-signin"
     ],
     "assetBundlePatterns": [
@@ -30,6 +30,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d1f7007e-4e63-44a9-9170-f26226d9dedd"
+      }
+    },
+    "owner": "jallall"
   }
 }
