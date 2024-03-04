@@ -11,16 +11,21 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "plugins":[
+      "@react-native-google-signin/google-signin"
+    ],
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.Awesome.AwesomeProject"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#ffffff",
+        "package": "com.Awesome.AwesomeProject"
       }
     },
     "web": {
