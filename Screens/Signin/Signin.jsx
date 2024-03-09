@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import {View,Text,Button,TextInput, Alert, ScrollView} from 'react-native'
 import SignIn from '../../Components/SignIn';
+import{auth} from '../../firebaseConfig'
 
 
 function Signin({navigation,route}) {
-    const [text,setText] = useState('');
+    const [email,setEmail] = useState('');
+    const [pswd,setPswd] = useState('');
     const {user,id} =route.params;
 
 
@@ -20,19 +22,24 @@ function Signin({navigation,route}) {
           })
     }
     const submit = ()=>{
-        Alert.alert(text)
+        Alert.alert(email)
     }
   return (
     <View>
-        <TextInput
-        placeholder='Enter text'
-        onChangeText={newText=>{setText(newText)}}
-        />
-        <Button title='Submit text' onPress={submit}/>
-        <Text>SignIn Page</Text>
-        <Button title='Signin' onPress={btnClick}/>
-        <Button title='Back Home' onPress={goBack}/>
-        <SignIn/>
+      <View>
+        <TextInput 
+        placeholder="Email"
+        onChangeText={inEmail=>setEmail(inEmail)}
+        defaultValue={""}/>
+      </View>
+      <View>
+        <TextInput 
+        placeholder="Password"
+        onChangeText={inPswd=>setPswd(inPswd)}
+        defaultValue={""}/>
+      </View>
+      <Button title='SignIn' onPress={submit}/>
+      <Button title='SignInWithGoogle' onPress={submit}/>
     </View>
   )
 }
