@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import {View,Text,Button,TextInput, Alert, ScrollView} from 'react-native'
 import SignIn from '../../Components/SignIn';
-import{auth} from '../../firebaseConfig'
+import {auth} from '../../firebaseConfig'
+import {signInWithEmailAndPassword,signInWithPopup,createUserWithEmailAndPassword} from 'firebase/auth'
 
 
 function Signin({navigation,route}) {
@@ -15,12 +16,16 @@ function Signin({navigation,route}) {
     const goBack = ()=>{
         navigation.popToTop();
     }
-    const btnClick = ()=>{
-        navigation.push('Signin',{
-            user:"Jalal",
-            id:"1"
-          })
+    const btnClick = async()=>{
+      try{
+        const response = await createUserWithEmailAndPassword(auth,email,pswd)
+      }
+      catch(err){
+        Alert.alert(err.message);
+      }
+      
     }
+
     const submit = ()=>{
         Alert.alert(email)
     }
@@ -38,7 +43,7 @@ function Signin({navigation,route}) {
         onChangeText={inPswd=>setPswd(inPswd)}
         defaultValue={""}/>
       </View>
-      <Button title='SignIn' onPress={submit}/>
+      <Button title='SignIn' onPress={btnClick}/>
       <Button title='SignInWithGoogle' onPress={submit}/>
     </View>
   )
