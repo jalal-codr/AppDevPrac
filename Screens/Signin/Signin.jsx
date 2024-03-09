@@ -31,7 +31,17 @@ function Signin({navigation,route}) {
 
     const submit = async()=>{
         // Alert.alert(email)
-        await signInWithPopup(auth,provider);
+        try{
+          const  response = await signInWithPopup(auth,provider);
+          if(response){
+            navigation.navigate("Home")
+          }
+        }
+        catch(err){
+          Alert.alert(err.message)
+        }
+
+
     }
   return (
     <View>
