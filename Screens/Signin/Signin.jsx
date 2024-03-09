@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {View,Text,Button,TextInput, Alert, ScrollView} from 'react-native'
 import SignIn from '../../Components/SignIn';
-import {auth} from '../../firebaseConfig'
+import {auth,provider} from '../../firebaseConfig'
 import {signInWithEmailAndPassword,signInWithPopup,createUserWithEmailAndPassword} from 'firebase/auth'
 
 
@@ -19,6 +19,9 @@ function Signin({navigation,route}) {
     const btnClick = async()=>{
       try{
         const response = await createUserWithEmailAndPassword(auth,email,pswd)
+        if(response){
+          navigation.navigate("Home")
+        }
       }
       catch(err){
         Alert.alert(err.message);
@@ -26,8 +29,9 @@ function Signin({navigation,route}) {
       
     }
 
-    const submit = ()=>{
-        Alert.alert(email)
+    const submit = async()=>{
+        // Alert.alert(email)
+        await signInWithPopup(auth,provider);
     }
   return (
     <View>

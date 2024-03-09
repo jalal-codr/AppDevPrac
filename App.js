@@ -4,12 +4,21 @@ import {NavigationContainer} from '@react-navigation/native'
 import {createNativeStackNavigator} from "@react-navigation/native-stack"
 import Home from './Screens/Home/Home';
 import Signin from './Screens/Signin/Signin';
+import {onAuthStateChanged} from'firebase/auth'
+import {auth} from './firebaseConfig'
 
 
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [user,setUser] = React.useState() 
+
+  React.useEffect(()=>{
+    onAuthStateChanged(auth,(user)=>{
+      console.log(user)
+    })
+  },[])
  
 
   return (
