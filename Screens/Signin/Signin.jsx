@@ -28,6 +28,18 @@ function Signin({navigation,route}) {
       }
       
     }
+    const signUp = async()=>{
+      try{
+        const response = await signInWithEmailAndPassword(auth,email,pswd);
+        if(response){
+          console.log(response);
+          navigation.navigate("Home");
+        }
+      }
+      catch(err){
+        Alert.alert(err.message);
+      }
+    }
 
     const submit = async()=>{
         // Alert.alert(email)
@@ -57,7 +69,8 @@ function Signin({navigation,route}) {
         onChangeText={inPswd=>setPswd(inPswd)}
         defaultValue={""}/>
       </View>
-      <Button title='SignIn' onPress={btnClick}/>
+      <Button title='SignUp' onPress={btnClick}/>
+      <Button title='Signin' onPress={signUp}/>
       <Button title='SignInWithGoogle' onPress={submit}/>
     </View>
   )
