@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import {auth} from "../../firebaseConfig"
+import {onAuthStateChanged} from 'firebase/auth'
 import {View,Text,Button,Image, ScrollView, FlatList, SectionList} from 'react-native'
 
 
 function Home({navigation}) {
+  const[user, setUser] = useState()
+
+  useEffect(()=>{
+    onAuthStateChanged(auth,(user)=>{
+      setUser(user)
+    })
+  })
 
   const btnPress  = ()=>{
     navigation.navigate('Signin',{
@@ -10,9 +19,19 @@ function Home({navigation}) {
       id:"1"
     });
   }
+  const getUserName = ()=>{
+    if(user){
+      return(<Text>Hello {user.displayName}</Text>)
+    }
+    else{
+      return(<Text>Hello </Text>)
+    }
+  }
   return (
   <View>
-    <Text>Hello</Text>
+    {
+      getUserName()
+    }
     <Button title='SignIn' onPress={btnPress}/>
     <ScrollView>
     <Text>Hello</Text>

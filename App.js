@@ -2,7 +2,6 @@ import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native'
 import {createNativeStackNavigator} from "@react-navigation/native-stack"
-import { TamaguiProvider } from './tamagui.config';
 import Home from './Screens/Home/Home';
 import Signin from './Screens/Signin/Signin';
 import {onAuthStateChanged} from'firebase/auth'
@@ -23,7 +22,6 @@ export default function App() {
  
 
   return (
-    <TamaguiProvider>
        <NavigationContainer>
       <Stack.Navigator  initialRouteName='Home'>
         <Stack.Screen name='Home' component={Home} initialParams={{
@@ -33,7 +31,6 @@ export default function App() {
         <Stack.Screen name='Signin' component={Signin}/>
       </Stack.Navigator>
     </NavigationContainer>
-    </TamaguiProvider>
   );
 }
 
